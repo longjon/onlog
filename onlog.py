@@ -5,12 +5,9 @@ import sqlite3
 import time
 import os.path
 
-DB_NAME = '~/logdb'
+from settings import DB_NAME, SLEEP_TIME, DOWN_TIME
 
-SLEEP_TIME = 1.0
-DOWN_TIME = 2.0
-
-conn = sqlite3.connect(os.path.expanduser(DB_NAME))
+conn = sqlite3.connect(DB_NAME)
 
 conn.execute('CREATE TABLE IF NOT EXISTS up (t REAL)')
 conn.execute('CREATE TABLE IF NOT EXISTS down (t REAL)')
